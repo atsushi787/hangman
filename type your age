@@ -1,0 +1,22 @@
+a = int(input("type your age:"))
+
+if a <= 19:
+    print("you are so young!!")
+
+elif a <= 29:
+    print("Oh you are young")
+
+elif a <= 39:
+    print("Huh you are still young")
+
+elif a <= 49:
+    print("your are middle")
+
+elif a <= 59:
+    print("Oh middle but...")
+
+elif a <= 69:
+    print("your senior")
+
+else:
+    print("you are old age!!")
