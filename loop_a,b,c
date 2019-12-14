@@ -1,0 +1,33 @@
+#ループ処理確認コード
+for i in range(1,3):
+    print(i)
+    for letter in ["a","b","c"]:
+        print(letter)
+    
+    
+cnt_1 = 0
+cnt_2 = 0
+for x in range(5):
+    for y in range(4):
+        if x > y:
+            cnt_1 += 1
+        else:
+            cnt_2 += 1
+print(x)
+print(y)
+print(cnt_1)
+print(cnt_2)
+
+
+cnt_3 = 0
+cnt_4 = 0
+for x in range(1,5):
+    print(x)
+    for y in [11,22,33,44]:
+        print(y)
+        if x > y:
+            cnt_3 += 1
+        else:
+            cnt_4 += 1
+print(cnt_3)
+print(cnt_4)
