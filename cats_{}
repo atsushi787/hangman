@@ -1,0 +1,9 @@
+cats = {"bule":[40,6],"choco":[35,5],"white":[38,4],"black":[50,8]}
+sum = 0
+
+for cat,value in cats.items():
+    print("ネコの名前は" + cat + "で体長は" + str(cats[cat][0]) + "cmで体重は" + str(cats[cat][1]) + "kgです") 
+    sum += (cats[cat][1])
+    total = sum
+
+print("ネコの合計の体重は" + str(total) + "です")
