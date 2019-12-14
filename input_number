@@ -1,0 +1,15 @@
+n = input("type number:")
+n = int(n)
+if n < 9:
+   print("10未満")
+else:
+   print("10以上")
+
+if n <= 10:
+   print("10以下")
+
+if n == 25 >= 10:
+   print("10 to 25")
+
+if n >= 25:
+   print("abobe 25")
