@@ -1,0 +1,17 @@
+def binary_search(numbers,target_number):
+    low = 0
+    higt = len(numbers)
+    while low <= higt:
+        middle = (low + higt) // 2
+        if numbers[middle] == target_number:
+            print("{1}は{0}番目にあります".format(middle, target_number))
+            break
+        
+        elif numbers[middle] < target_number:
+            low = middle + 1
+        else:
+            higt = middle -1
+
+numbers = [0,1,2,3,4,5,6,7,8,9,10,11,12]
+target_number = 3
+binary_search(numbers, target_number)
