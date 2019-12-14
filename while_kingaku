@@ -1,0 +1,13 @@
+kingaku = 0
+hiduke = 0
+while kingaku <= 4000:
+    hiduke += 1
+    kingaku += hiduke * 10
+print("金額は" + str(kingaku) + "円で終了日は" + str(hiduke) + "日です")
+
+nnm = [1,2,3,4,5,6,7,8,9,10]
+for n in nnm:
+    if n % 2 != 0:
+        print(str(n) + "odd number")
+    else:
+        print(str(n) + "even number")
