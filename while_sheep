@@ -1,0 +1,6 @@
+num = 1
+while num < 21:
+    print("羊が",num,"匹")
+    num += 1
+    if num == 21:
+        print("おやすみなさい")
