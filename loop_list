@@ -1,0 +1,4 @@
+fruits = [["strawberry","red"],["peach","pink"],["banana","yellow"]]
+
+for fruit,col in fruits:
+    print(fruit + " is " + col)
