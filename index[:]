@@ -1,0 +1,11 @@
+fict = ["トルストイ","カミュ","オーウエン","ハクスリー","オースティン"]
+print(fict[0:3])
+print(fict[0][0:3])
+print(fict[1][1:])
+
+author = "kafka"
+print(author[0])
+print(author[1])
+print(author[2])
+print(author[3])
+print(author[4])
