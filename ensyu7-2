@@ -1,0 +1,26 @@
+import pandas as pd
+from pandas import Series, DataFrame
+
+
+arr1 = {"時":[10,10,10,10,10],
+       "分":[0,8,22,37,54],
+       "種別":["exp","std","std","exp","exp"]}
+
+arr2 = {"時":[11,11,11,11],
+       "分":[6,24,37,55],
+       "種別":["std","exp","std","exp"]}
+
+arr3 = {"時":[12,12,12,12],
+       "分":[6,27,37,55],
+       "種別":["std","exp","std","exp"]}
+
+df1 = pd.DataFrame(arr1)
+df2 = pd.DataFrame(arr2)
+df3 = pd.DataFrame(arr3)
+
+print(df1)
+print(df2)
+print(df3)
+
+df4 = pd.concat([df1,df2,df3], axis=1)
+print(df4)
