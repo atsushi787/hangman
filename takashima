@@ -1,0 +1,13 @@
+import re
+
+list = ["10/0;exp","10/8;std","10/22;std","10/37;exp","10/54;exp",
+       "11/6;std","11/24;exp","11/37;std","11/55;exp",
+       "12/6;std","12/27;exp","12/37;std","12/55;exp"]
+
+bara = lambda x:re.split("[/;]",x)[0]+"/"+str(int(re.split("[/;]",x)[1])-10)+";"+re.split("[/;]",x)[2]\
+       if int(re.split("[/;]",x)[1])>=10\
+       else str(int(re.split("[/;]",x)[0])-1)+"/"+str(int(re.split("[/;]",x)[1])+60-10)+";"+re.split("[/;]",x)[2]
+
+list2=[bara(x) for x in list if "std" in x]
+
+print(list2)
