@@ -1,0 +1,19 @@
+'''
+Created on 2019/12/24
+
+@author: 宅間
+'''
+
+class Monster(object):
+    '''
+    モンスターの情報を保存するためのクラス
+    '''
+
+
+    def __init__(self, name, hp ):
+        '''
+        name : モンスターの名前
+        hp : モンスターの体力
+        '''
+        self.name = name
+        self.hp = hp
