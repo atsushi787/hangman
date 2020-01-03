@@ -17,7 +17,7 @@ while q >= 0:
     a = int(input("数字を入力して下さい"))
     b = random.randint(1,3)
     def hantei (a,b):
-        return (b-a+3)%3
+        return (a-b+3)%3
     c = hantei(a,b)
     print("あなた"+str(a))
     print("コンピューター"+str(b))
