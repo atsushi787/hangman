@@ -1,0 +1,42 @@
+import random
+
+a = 0
+b = 0
+c = 0
+x = 0
+y = 0
+z = 0
+n = 0
+q = 0
+
+te = ["じゃんけん","グー","チョキ","パー"]
+
+print("{0}を始めます。{1} ＝ 1　{2} ＝ 2  {3} ＝ 3".format("じゃんけん","グー","チョキ","パー"))
+
+while q >= 0:
+    a = int(input("数字を入力して下さい  "))
+    b = random.randint(1,3)
+    def hantei (a,b):
+        return (a-b+3)%3
+    c = hantei(a,b)
+    print("あなた  " + te[a])
+    print("コンピューター  " + te[b])
+    if c > 1:
+        print("勝ち︎！！")
+        x += 1
+    elif c == 0:
+        print("あいこ")
+        z += 1
+    else:
+        c < 2
+        print("負け。。。")
+        y += 1
+    print(str(x)+"勝  "+str(y)+"敗  "+str(z)+"分")
+    print("続けますか？ はい = 1 いいえ = 2 ")
+    n = int(input("1 or 2"))
+    if n ==  2:
+        q -= 1
+    else:
+        continue
+            
+print("終わります")
