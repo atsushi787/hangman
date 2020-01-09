@@ -23,3 +23,33 @@ df_tail = df_5.tail(3)
 
 df_6 = df_2[[:]].dropna()
 display(df_2)
+
+
+''''
+import numpy as np
+from  numpy import nan as NA
+import pandas as pd
+df_1 = pd.read_csv("csv2.csv")#csvファイルのチェック
+#df_1.columns = ["","売上高","接客","品揃え","面積","駅距離"]
+display(df_1)
+df_2 = df_1.drop("面積",1)
+
+#ここからチェック 列指定の仕方
+df_2.iloc[6,:] = NA
+df_2.iloc[10,:] = NA
+display(df_2)
+
+df_3 = df_2.fillna(df_2.mean())
+display(df_3)
+
+df_4 = df_3.sort_values(by=["売上高"],ascending = False)
+display(df_4.head(3))
+display(df_4.tail(3))
+#df_tail = df_4.tail(3)
+
+df_5 = df_3.sort_values(by=["駅距離"],ascending = True)
+display(df_5.head(3))
+display(df_5.tail(3))
+
+df_6 = df_2.dropna()
+display(df_2)
