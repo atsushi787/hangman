@@ -1,0 +1,27 @@
+手順
+import pandas as pd
+df_1 = pd.read_csv("csv1.csv",usecols=["最高気温","売上数"])
+display(df_1)
+手順２
+from matplotlib import pyplot as plt
+%matplotlib inline
+手順３
+plt.plot(df_1["最高気温"],df_1["売上数"],"o")
+plt.xlabel("max temp")
+plt.ylabel("sales")
+手順４
+import numpy as np
+X = df_1["最高気温"]
+Y = df_1["売上数"]
+print(np.corrcoef(X,Y))
+手順５
+from sklearn import linear_model
+model = linear_model.LinearRegression()
+model.fit(X[:,np.newaxis],Y)
+手順６
+print(model.coef_, model.intercept_)
+
+print(model.predict([[30]]))
+print(model.predict([[36]]))
+手順７
+print(model.score(X[:,np.newaxis],Y))
