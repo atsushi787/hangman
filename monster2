@@ -1,0 +1,39 @@
+'''
+Created on 2020/01/21
+カプセル化を実装したクラス
+@author: 宅間
+'''
+
+class Monster(object):
+    '''
+    モンスターの情報を保存するためのクラス
+    '''
+
+
+    def __init__(self, name, hp):
+        '''
+        name : モンスターの名前
+        hp : モンスターの体力
+        '''
+        #プライベート変数に変更
+    
+        self.__name = name
+        self.__hp = hp
+
+    #名前をおしえる
+    #getter メソッド　といいます   
+    def get_name(self):
+        return self.__name
+    
+    def get_hp(self):
+        return self.__hp
+    
+    #setter メソッド
+    def set_hp(self,amount):
+        if amount < 0:
+            #マイナスの体力にはしたくない
+            self.__hp = 0
+        else:
+            #そうでなければ採用
+            self.__hp = amount
+            
