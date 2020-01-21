@@ -1,0 +1,70 @@
+'''
+Created on 2020/01/21
+#カプセル化
+@author: 宅間
+'''
+
+from model.monster import Monster
+import random
+
+# メインクラス定義
+class Main():
+    # コンストラクタ
+    def __init__(self):
+        print("モンスターを召喚するよ")
+        self.enemies = [Monster("ドラキュラ",10),
+                        Monster("オオカミ男",20),
+                        Monster("フランケン",30)]
+    
+    # 動く
+    def run(self):
+        self.show_start_message()
+        # ここで 繰り返しを行い バトル を動かす予定
+        while not self.do_selection():
+            pass
+        self.show_end_message()
+    
+    # 入力処理
+    # 戻り値：True 終了　/　False 継続
+    # do_selectionはユーザーの入力でFalseになるまで受け付ける
+    def do_selection(self):
+        #一覧表示
+        for i, m in enumerate(self.enemies):
+            print("{0}:{1}の体力{2}".format(i,m.get_name(),m.get_hp()))            
+        print("逃げたいときは  9 を入力")
+        #入力判定
+        hit = int(input("誰と戦う？ >"))
+        if hit == 9:
+            return True#中断
+        #殴る処理
+        target = self.enemies[hit]
+        #殴る強さをランダムで決める
+        damage = random.randint(5,10)
+        #殴られて体力が変わる
+        target.set_hp(target.get_hp()-damage)
+        
+        print("{0}は{1}のダメージを受けた１...".format( target.get_name(),damage))        
+        #全滅チェック(真偽値フラグ)
+        ending = True
+        for m in self.enemies:
+            if m.get_hp() > 0:
+                ending = False
+                break
+        return ending
+    
+    # 始まりのメッセージを表示する
+    def show_start_message(self):
+        print("モンスターバトル始まるよ！")
+        print("全部倒せたら 勝利！")
+
+    # 終わりのメッセージを表示する
+    def show_end_message(self):
+        print("戦いはまだつづくのじゃ")
+        print("また バトろうぜ")
+
+
+
+# 直接実行された時のみ、以下が動作する
+if __name__ == '__main__':
+    m = Main()  # インスタンス（実態）の生成
+    m.run()     # インスタンスメソッドの動作
