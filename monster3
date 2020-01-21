@@ -1,0 +1,43 @@
+'''
+Created on 2020/01/21
+カプセル化　の応用
+@author: 講師
+'''
+
+class Monster(object):
+    '''
+    モンスター　の　情報を　保持するためのクラス
+    '''
+
+
+    def __init__(self, name, hp):
+        '''
+        
+        name : モンスターの名前
+        hp : モンスターの体力
+        '''
+        # プライベート変数に変更
+        self.__name = name
+        self.__hp = hp
+    
+    # getter メソッド
+    def get_name(self):
+        return self.__name
+    
+    def get_hp(self):
+        return self.__hp
+    
+     
+    # モンスターが指定されたダメージ分痛がります       
+    def hit_damage(self,amount):
+        if amount < 0:
+            return  # マイナスでは殴られない
+        if amount < self.__hp:
+            # 殴る力が　体力より少なければ素直に殴られる
+            self.__hp -= amount
+            print( "{0} は　{1}　のダメージを受けた！".
+                   format(self.__name, amount))
+        else:
+            #　オーバーキルにはならない
+            self.__hp = 0
+            print("{0}は倒れた".format(self.__name))
