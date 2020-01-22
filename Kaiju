@@ -1,0 +1,38 @@
+class Kaijyu:
+    
+    def __init__(self,name,physique,strength,scales,brain,horn,fang,joe,arm,claw,foot,fin,tail):
+        self.name = name
+        self.physique = physique
+        self.strength = strength
+        self.scales = scales
+        self.brain = brain
+        self.horn = horn
+        self.fang = fang
+        self.joe = joe
+        self.arm = arm
+        self.claw = claw
+        self.foot = foot
+        self.fin = fin
+        self.tail = tail
+        self.hp = (brain+ horn+ fang+ joe+ arm+ claw+ foot+ fin+ tail)
+        self.attk = (strength+ horn+ fang+ joe+ arm+ foot+ tail)
+        self.defe = (physique+ scales+ arm+ foot+ fin+ tail) 
+        
+kaijyu_1 = Kaijyu("godzilla",80,70,50,60,20,45,30,65,20,70,75,80)
+    
+print("名前:"+str(kaijyu_1.name))
+print("体力:"+str(kaijyu_1.hp))
+print("破壊力:"+str(kaijyu_1.attk))
+print("耐久力:"+str(kaijyu_1.defe))
+print("体格:"+str(kaijyu_1.physique))
+print("筋力:"+str(kaijyu_1.strength))
+print("うろこ:"+str(kaijyu_1.scales))
+print("知能:"+str(kaijyu_1.brain))
+print("角:"+str(kaijyu_1.horn))
+print("牙:"+str(kaijyu_1.fang))
+print("アゴ:"+str(kaijyu_1.joe))
+print("腕:"+str(kaijyu_1.arm))
+print("爪:"+str(kaijyu_1.claw))
+print("足:"+str(kaijyu_1.foot))
+print("背ビレ:"+str(kaijyu_1.fin))
+print("尾:"+str(kaijyu_1.tail))
