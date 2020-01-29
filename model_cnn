@@ -1,0 +1,40 @@
+from keras import optimizers
+from keras.applications.vgg16 import VGG16
+from keras.datasets import cifar10
+from keras.layers import Dense, Dropout, Flatten, Input
+from keras.models import Model, Sequential
+from keras.utils.np_utils import to_categorical
+import matplotlib.pyplot as plt
+import numpy as np
+
+(X_train, y_train), (X_test, y_test) = cifar10.load_data()
+y_train = to_categorical(y_train)
+y_test = to_categorical(y_test)
+
+input_tensor = Input(shape=(32,32,3))
+vgg16 = VGG16(include_top=False, weights="imagenet",input_tensor=input_tensor)
+
+top_model = vgg16.output
+top_model = Flatten(input_shape=vgg16.output_shape[1:])(top_model)
+top_model = Dense(256, activation="sigmoid")(top_model)
+top_model = Dropout(0.5)(top_model)
+top_model = Dense(10, activation="softmax")(top_model)
+
+model = Model(inputs=vgg16.input,outputs=top_model)
+
+for layer in model.layers[:15]:
+    layer.trainable = False
+    
+model.summary()
+
+model.compile(loss="categorical_crossentropy",optimizer=optimizers.SGD(lr=1e-4,momentum=0.9),metrics=["accuracy"])
+
+#model.load_weights("param_vgg15.hdf5")
+
+model.fit(X_train, y_train, validation_data=(X_test, y_test),batch_size=32, epochs=3)
+
+model.save_weights("param_vgg_15.hdf5")
+
+scores = model.evaluate(X_test, y_test, verbose=1)
+print("Test loss:", scores[0])
+print("Test accuracy:",scores[1])
